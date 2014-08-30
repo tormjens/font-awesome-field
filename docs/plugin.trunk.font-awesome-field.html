@@ -1,0 +1,623 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>API Documentation</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview({
+              animated: "fast",
+              collapsed: true,
+              persist: "cookie"
+            });
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div id="maincontainer"><div id="header"><h1>API Documentation<img src="images/top-stopper.png"></img></h1></div><ul xmlns="" id="menu">
+<li><a href="graph.html">Class diagram</a></li>
+<li><a href="markers.html">TODO / Markers</a></li>
+<li><a href="parse_markers.html">Errors</a></li>
+</ul>
+<div id="content_container"><div xmlns="" id="content">
+<h1>plugin/trunk/font-awesome-field.php</h1>
+<div class="file_menu">
+<a href="#constants">Constants</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">package</label><div class="property-value"></div>
+</div>
+<a name="constants"></a><h2>Constants</h2>
+<a id="::FA_DIR"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>FA_DIR<span class="nb-faded-text">
+         = plugin_dir_path(__FILE__)</span>
+</h3>
+<em></em><br><small></small><br><br>
+</div>
+<a id="::FA_URL"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>FA_URL<span class="nb-faded-text">
+         = plugin_dir_url(__FILE__)</span>
+</h3>
+<em></em><br><small></small><br><br>
+</div>
+<a name="classes"></a><h2>Classes</h2>
+<div id="Font_Awesome_Field" class="class">
+<h3>Font_Awesome_Field</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">author</label><div class="property-value">
+<a title="" href="mailto:tormorten@tormorten.no">Tor Morten Jensen</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">WordPress</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Font Awesome Field Class</em><br><br><div id="methods_Font_Awesome_Field">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#Font_Awesome_Field::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#Font_Awesome_Field::front_scripts()">front_scripts</a>,
+      <a style="font-style: italic;" href="#Font_Awesome_Field::generate_icon_array()">generate_icon_array</a>,
+      <a style="font-style: italic;" href="#Font_Awesome_Field::include_files()">include_files</a>,
+      <a style="font-style: italic;" href="#Font_Awesome_Field::instance()">instance</a>,
+      <a style="font-style: italic;" href="#Font_Awesome_Field::metabox()">metabox</a>,
+      <a style="font-style: italic;" href="#Font_Awesome_Field::modal()">modal</a>,
+      <a style="font-style: italic;" href="#Font_Awesome_Field::populate_metabox()">populate_metabox</a>,
+      <a style="font-style: italic;" href="#Font_Awesome_Field::retrieve()">retrieve</a>,
+      <a style="font-style: italic;" href="#Font_Awesome_Field::save()">save</a>,
+      <a style="font-style: italic;" href="#Font_Awesome_Field::shortcode()">shortcode</a>,
+      <a style="font-style: italic;" href="#Font_Awesome_Field::styles_and_scripts()">styles_and_scripts</a>,
+      <div class="method">
+<a id="Font_Awesome_Field::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Loads up actions and translations for the plugins</em><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>author</td>
+<td><a href="mailto:tormorten@tormorten.no"><small>Tor Morten Jensen</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Font_Awesome_Field::front_scripts()"></a><h3>front_scripts<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Loads scripts and/or styles in the front-end</em><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>author</td>
+<td><a href="mailto:tormorten@tormorten.no"><small>Tor Morten Jensen</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Font_Awesome_Field::generate_icon_array()"></a><h3>generate_icon_array<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Generates an array of all icons in Font Awesome by reading it from the file and then storing it in the database.</em><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>author</td>
+<td><a href="mailto:tormorten@tormorten.no"><small>Tor Morten Jensen</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Font_Awesome_Field::include_files()"></a><h3>include_files<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Include other PHP scripts for the plugin</em><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>author</td>
+<td><a href="mailto:tormorten@tormorten.no"><small>Tor Morten Jensen</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Font_Awesome_Field::instance()"></a><h3>instance<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">object</span>
+</h3>
+<h4>Description</h4>
+<em>Get an instance of the plugin</em><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>object</td>
+<td>The instance</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>author</td>
+<td><a href="mailto:tormorten@tormorten.no"><small>Tor Morten Jensen</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Font_Awesome_Field::metabox()"></a><h3>metabox<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Loads up actions and translations for the plugins</em><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>author</td>
+<td><a href="mailto:tormorten@tormorten.no"><small>Tor Morten Jensen</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Font_Awesome_Field::modal()"></a><h3>modal<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Adds the icon modal</em><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td>Echoes the modal</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>author</td>
+<td><a href="mailto:tormorten@tormorten.no"><small>Tor Morten Jensen</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Font_Awesome_Field::populate_metabox()"></a><h3>populate_metabox<span class="nb-faded-text">(
+          
+             
+            $post,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Prints metabox content</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$post</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td>Echoes the metabox contents</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>author</td>
+<td><a href="mailto:tormorten@tormorten.no"><small>Tor Morten Jensen</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Font_Awesome_Field::retrieve()"></a><h3>retrieve<span class="nb-faded-text">(
+          
+             
+            $post_id
+            = null,
+          
+             
+            $format
+            = false,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Retrieve an icon from a post</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$post_id</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>null</td>
+</tr>
+<tr>
+<td>$format</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The icon, either formatted as HTML, or just the name</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>author</td>
+<td><a href="mailto:tormorten@tormorten.no"><small>Tor Morten Jensen</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Font_Awesome_Field::save()"></a><h3>save<span class="nb-faded-text">(
+          
+             
+            $post_id,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Saves the data</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$post_id</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>author</td>
+<td><a href="mailto:tormorten@tormorten.no"><small>Tor Morten Jensen</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Font_Awesome_Field::shortcode()"></a><h3>shortcode<span class="nb-faded-text">(
+          
+             
+            $atts,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Font Awesome Shortcode</em><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$atts</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>The formatted shortcode</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>author</td>
+<td><a href="mailto:tormorten@tormorten.no"><small>Tor Morten Jensen</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="Font_Awesome_Field::styles_and_scripts()"></a><h3>styles_and_scripts<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Loads up styles and scripts</em><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>author</td>
+<td><a href="mailto:tormorten@tormorten.no"><small>Tor Morten Jensen</small></a></td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_Font_Awesome_Field">
+<h4>Properties</h4>
+<a href="#Font_Awesome_Field::%24icons">$icons</a>,
+      <a href="#Font_Awesome_Field::%24screens">$screens</a>,
+      <div class="method">
+<a id="Font_Awesome_Field::$icons"></a><h3>
+<span class="nb-faded-text">array 
+          public 
+          </span>$icons
+          =
+          </h3>
+<em>The availiable icons</em><br><small></small><br><br>
+</div>
+<div class="method">
+<a id="Font_Awesome_Field::$screens"></a><h3>
+<span class="nb-faded-text">array 
+          public 
+          </span>$screens
+          =
+          </h3>
+<em>The screen to get the field</em><br><small></small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://www.phpdoc.org">phpDocumentor 2.7.0</a>.</small></div><div id="index"><div class="padder"><input id="search_box"></input><div class="section">
+<h1>Namespaces</h1>
+<ul id="namespaces-" class="filetree"><li class="closed">
+<span class="folder">global</span><ul></ul>
+</li></ul>
+</div><div class="section">
+<h1>Packages</h1>
+<ul id="packages-" class="filetree">
+<li class="closed">
+<span class="folder">Default</span><ul id="packages_Default" class="filetree"></ul>
+</li>
+<li class="closed">
+<span class="folder">WordPress</span><ul id="packages_WordPress" class="filetree"><li class="closed"><span class="class"><a href="plugin.tags.1.0.font-awesome-field.html#Font_Awesome_Field">Font_Awesome_Field</a></span></li></ul>
+</li>
+</ul>
+</div>
+</div></div><div id="footer"><div class="padder"></div></div></div></body></html>

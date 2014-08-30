@@ -1,4 +1,40 @@
-<?php  
+<html>
+    <head>
+        <script
+            type="text/javascript"
+            src="../js/jquery-1.4.2.min.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shCore.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shBrushJScript.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shBrushPhp.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shBrushXml.js">
+        </script>
+        <link
+            href="../syntax_highlighter/styles/shCore.css" rel="stylesheet"
+            type="text/css"
+        />
+        <link
+            href="../syntax_highlighter/styles/shCoreEclipse.css"
+            rel="stylesheet" type="text/css"
+        />
+        <link
+            href="../syntax_highlighter/styles/shThemeWordpress.css"
+            rel="stylesheet" type="text/css"
+        />
+    </head>
+    <body>
+        <pre class="brush: php">&lt;?php  
 /**
  * Font Awesome Field WordPress Plugin
  * 
@@ -51,7 +87,7 @@ if( !class_exists( 'Font_Awesome_Field' ) ) {
 	/**
 	 * Font Awesome Field Class
 	 *
-	 * @author Tor Morten Jensen <tormorten@tormorten.no>
+	 * @author Tor Morten Jensen &lt;tormorten@tormorten.no&gt;
 	 **/
 	class Font_Awesome_Field {
 
@@ -73,18 +109,18 @@ if( !class_exists( 'Font_Awesome_Field' ) ) {
 		 * Loads up actions and translations for the plugins
 		 *
 		 * @return void
-		 * @author Tor Morten Jensen <tormorten@tormorten.no>
+		 * @author Tor Morten Jensen &lt;tormorten@tormorten.no&gt;
 		 **/
 		public function __construct() {
 
 			// generate the icon array
-			$this->generate_icon_array();
+			$this-&gt;generate_icon_array();
 
 			// Set screens
-			$this->screens = apply_filters( 'fa_post_types', get_post_types( array( 'public' => true ) ) );
+			$this-&gt;screens = apply_filters( 'fa_post_types', get_post_types( array( 'public' =&gt; true ) ) );
 
 			// These should only be loaded in the admin, and for users that can edit posts
-			if( is_admin() && ( current_user_can( 'edit_posts' ) || current_user_can( 'edit_pages' ) ) ) {
+			if( is_admin() &amp;&amp; ( current_user_can( 'edit_posts' ) || current_user_can( 'edit_pages' ) ) ) {
 
 				// Load up the metabox
 				add_action( 'add_meta_boxes', array( $this, 'metabox' ) );
@@ -115,20 +151,20 @@ if( !class_exists( 'Font_Awesome_Field' ) ) {
 		 *
 		 * @param array|string $atts Shortcode attributes
 		 * @return string The formatted shortcode
-		 * @author Tor Morten Jensen <tormorten@tormorten.no>
+		 * @author Tor Morten Jensen &lt;tormorten@tormorten.no&gt;
 		 **/
 		function shortcode( $atts ) {
-			$atts = extract( shortcode_atts( array( 'icon' => '' ), $atts ) );
+			$atts = extract( shortcode_atts( array( 'icon' =&gt; '' ), $atts ) );
 
 			if( !$icon ) {
 				global $post;
-				$post_id = $post->ID;
-				$icon = $this->retrieve( $post_id );
+				$post_id = $post-&gt;ID;
+				$icon = $this-&gt;retrieve( $post_id );
 				if(!$icon)
 					return;
 			}
 
-			return '<i class="fa '. $icon .'"></i>';
+			return '&lt;i class=&quot;fa '. $icon .'&quot;&gt;&lt;/i&gt;';
 		}
 
 		/**
@@ -137,7 +173,7 @@ if( !class_exists( 'Font_Awesome_Field' ) ) {
 		 * @param integer $post_id The post ID
 		 * @param bool $format Format the output
 		 * @return string The icon, either formatted as HTML, or just the name
-		 * @author Tor Morten Jensen <tormorten@tormorten.no>
+		 * @author Tor Morten Jensen &lt;tormorten@tormorten.no&gt;
 		 **/
 		public function retrieve( $post_id = null, $format = false ) {
 
@@ -148,7 +184,7 @@ if( !class_exists( 'Font_Awesome_Field' ) ) {
 				if( !is_object($post) )
 					return;
 
-				$post_id = $post->ID;
+				$post_id = $post-&gt;ID;
 
 			}
 
@@ -158,7 +194,7 @@ if( !class_exists( 'Font_Awesome_Field' ) ) {
 				return;
 
 			if( $format ) {
-				$output = '<i class="fa '. $icon .'"></i>';
+				$output = '&lt;i class=&quot;fa '. $icon .'&quot;&gt;&lt;/i&gt;';
 			}
 			else {
 				$output = $icon;
@@ -172,7 +208,7 @@ if( !class_exists( 'Font_Awesome_Field' ) ) {
 		 * Include other PHP scripts for the plugin
 		 *
 		 * @return void
-		 * @author Tor Morten Jensen <tormorten@tormorten.no>
+		 * @author Tor Morten Jensen &lt;tormorten@tormorten.no&gt;
 		 **/
 		public function include_files() {
 
@@ -190,7 +226,7 @@ if( !class_exists( 'Font_Awesome_Field' ) ) {
 		 * Loads scripts and/or styles in the front-end
 		 *
 		 * @return void
-		 * @author Tor Morten Jensen <tormorten@tormorten.no>
+		 * @author Tor Morten Jensen &lt;tormorten@tormorten.no&gt;
 		 **/
 		public function front_scripts() {
 
@@ -206,54 +242,54 @@ if( !class_exists( 'Font_Awesome_Field' ) ) {
 		 * Adds the icon modal
 		 *
 		 * @return void Echoes the modal
-		 * @author Tor Morten Jensen <tormorten@tormorten.no>
+		 * @author Tor Morten Jensen &lt;tormorten@tormorten.no&gt;
 		 **/
 		public function modal() {
-			?>
+			?&gt;
 			
-			<div class="fa-field-modal" id="fa-field-modal" style="display:none">
+			&lt;div class=&quot;fa-field-modal&quot; id=&quot;fa-field-modal&quot; style=&quot;display:none&quot;&gt;
 				
-				<div class="fa-field-modal-close">&times;</div>
+				&lt;div class=&quot;fa-field-modal-close&quot;&gt;&amp;times;&lt;/div&gt;
 
-				<h1 class="fa-field-modal-title"><?php _e( 'Select Font Awesome Icon', 'fa-field' ); ?></h1>
+				&lt;h1 class=&quot;fa-field-modal-title&quot;&gt;&lt;?php _e( 'Select Font Awesome Icon', 'fa-field' ); ?&gt;&lt;/h1&gt;
 
-				<div class="fa-field-modal-icons">
+				&lt;div class=&quot;fa-field-modal-icons&quot;&gt;
 					
-					<?php if( $this->icons ) : ?>
+					&lt;?php if( $this-&gt;icons ) : ?&gt;
 
-					<?php foreach( $this->icons as $icon ) : ?>
+					&lt;?php foreach( $this-&gt;icons as $icon ) : ?&gt;
 
-					<div class="fa-field-modal-icon-holder" data-icon="<?php echo $icon['class']; ?>">
-						<div class="icon">
-							<i class="fa <?php echo $icon['class']; ?>"></i>
-						</div>
-						<div class="label">
-							<?php echo $icon['class']; ?>
-						</div>
+					&lt;div class=&quot;fa-field-modal-icon-holder&quot; data-icon=&quot;&lt;?php echo $icon['class']; ?&gt;&quot;&gt;
+						&lt;div class=&quot;icon&quot;&gt;
+							&lt;i class=&quot;fa &lt;?php echo $icon['class']; ?&gt;&quot;&gt;&lt;/i&gt;
+						&lt;/div&gt;
+						&lt;div class=&quot;label&quot;&gt;
+							&lt;?php echo $icon['class']; ?&gt;
+						&lt;/div&gt;
 						
-					</div>
+					&lt;/div&gt;
 
-					<?php endforeach; ?>
+					&lt;?php endforeach; ?&gt;
 
-					<?php endif; ?>
+					&lt;?php endif; ?&gt;
 
-				</div>
+				&lt;/div&gt;
 
-			</div>
+			&lt;/div&gt;
 
-			<?php
+			&lt;?php
 		}
 
 		/**
 		 * Loads up styles and scripts
 		 *
 		 * @return void
-		 * @author Tor Morten Jensen <tormorten@tormorten.no>
+		 * @author Tor Morten Jensen &lt;tormorten@tormorten.no&gt;
 		 **/
 		public function styles_and_scripts() {
 
 			// only load the styles for eligable post types
-			if( in_array( get_current_screen()->post_type, $this->screens ) ) {
+			if( in_array( get_current_screen()-&gt;post_type, $this-&gt;screens ) ) {
 
 				// load up font awesome
 				wp_enqueue_style( 'fa-field-fontawesome-css', FA_URL . 'css/font-awesome/css/font-awesome.min.css' );
@@ -271,12 +307,12 @@ if( !class_exists( 'Font_Awesome_Field' ) ) {
 		 * Loads up actions and translations for the plugins
 		 *
 		 * @return void
-		 * @author Tor Morten Jensen <tormorten@tormorten.no>
+		 * @author Tor Morten Jensen &lt;tormorten@tormorten.no&gt;
 		 **/
 		public function metabox() {
 
 			// which screens to add the metabox to, by default all public post types are added
-			$screens = $this->screens;
+			$screens = $this-&gt;screens;
 
 			foreach( $screens as $screen ) {
 
@@ -291,32 +327,32 @@ if( !class_exists( 'Font_Awesome_Field' ) ) {
 		 *
 		 * @param object $post The post object
 		 * @return void Echoes the metabox contents
-		 * @author Tor Morten Jensen <tormorten@tormorten.no>
+		 * @author Tor Morten Jensen &lt;tormorten@tormorten.no&gt;
 		 **/
 		public function populate_metabox( $post ) {
 
-			$icon = get_post_meta( $post->ID, 'fa_field_icon', true );
-			?>
+			$icon = get_post_meta( $post-&gt;ID, 'fa_field_icon', true );
+			?&gt;
 			
-			<div class="fa-field-metabox">
+			&lt;div class=&quot;fa-field-metabox&quot;&gt;
 				
-				<div class="fa-field-current-icon">
-					<div class="icon">
-						<?php if( $icon ) : ?>
-							<i class="fa <?php echo $icon; ?>"></i>
-						<?php endif; ?>
-					</div>
-					<div class="delete <?php echo $icon ? 'active' : ''; ?>">&times;</div>
-				</div>
+				&lt;div class=&quot;fa-field-current-icon&quot;&gt;
+					&lt;div class=&quot;icon&quot;&gt;
+						&lt;?php if( $icon ) : ?&gt;
+							&lt;i class=&quot;fa &lt;?php echo $icon; ?&gt;&quot;&gt;&lt;/i&gt;
+						&lt;?php endif; ?&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;delete &lt;?php echo $icon ? 'active' : ''; ?&gt;&quot;&gt;&amp;times;&lt;/div&gt;
+				&lt;/div&gt;
 
-				<input type="hidden" name="fa_field_icon" id="fa_field_icon" value="<?php echo $icon; ?>">
-				<?php wp_nonce_field( 'fa_field_icon', 'fa_field_icon_nonce' ); ?>
+				&lt;input type=&quot;hidden&quot; name=&quot;fa_field_icon&quot; id=&quot;fa_field_icon&quot; value=&quot;&lt;?php echo $icon; ?&gt;&quot;&gt;
+				&lt;?php wp_nonce_field( 'fa_field_icon', 'fa_field_icon_nonce' ); ?&gt;
 				
-				<button class="button-primary add-fa-icon"><?php _e( 'Add Icon', 'fa-field' ); ?></button>
+				&lt;button class=&quot;button-primary add-fa-icon&quot;&gt;&lt;?php _e( 'Add Icon', 'fa-field' ); ?&gt;&lt;/button&gt;
 
-			</div>
+			&lt;/div&gt;
 
-			<?php
+			&lt;?php
 		}
 
 		/**
@@ -324,14 +360,14 @@ if( !class_exists( 'Font_Awesome_Field' ) ) {
 		 *
 		 * @param int $post_id The ID of the saved post
 		 * @return void
-		 * @author Tor Morten Jensen <tormorten@tormorten.no>
+		 * @author Tor Morten Jensen &lt;tormorten@tormorten.no&gt;
 		 **/
 		public function save( $post_id ) {
 
-			if( !in_array( get_post_type( $post_id ), $this->screens ) )
+			if( !in_array( get_post_type( $post_id ), $this-&gt;screens ) )
 				return;
 
-			if( isset($_POST['fa_field_icon_nonce']) && !wp_verify_nonce( $_POST['fa_field_icon_nonce'], 'fa_field_icon' ) ) 
+			if( isset($_POST['fa_field_icon_nonce']) &amp;&amp; !wp_verify_nonce( $_POST['fa_field_icon_nonce'], 'fa_field_icon' ) ) 
 				return;
 
 			if( isset( $_POST['fa_field_icon'] ) ) {
@@ -344,7 +380,7 @@ if( !class_exists( 'Font_Awesome_Field' ) ) {
 		 * Get an instance of the plugin
 		 *
 		 * @return object The instance
-		 * @author Tor Morten Jensen <tormorten@tormorten.no>
+		 * @author Tor Morten Jensen &lt;tormorten@tormorten.no&gt;
 		 **/
 		public function instance() {
 
@@ -356,7 +392,7 @@ if( !class_exists( 'Font_Awesome_Field' ) ) {
 		 * Generates an array of all icons in Font Awesome by reading it from the file and then storing it in the database.
 		 *
 		 * @return void
-		 * @author Tor Morten Jensen <tormorten@tormorten.no>
+		 * @author Tor Morten Jensen &lt;tormorten@tormorten.no&gt;
 		 **/
 		private function generate_icon_array(){
 
@@ -364,7 +400,7 @@ if( !class_exists( 'Font_Awesome_Field' ) ) {
 
 			if( ! $icons ) {
 
-				$pattern = '/\.(fa-(?:\w+(?:-)?)+):before\s+{\s*content:\s*"(.+)";\s+}/';
+				$pattern = '/\.(fa-(?:\w+(?:-)?)+):before\s+{\s*content:\s*&quot;(.+)&quot;;\s+}/';
 				$subject = file_get_contents( FA_DIR . 'css/font-awesome/css/font-awesome.css' );
 
 				preg_match_all( $pattern, $subject, $matches, PREG_SET_ORDER );
@@ -372,14 +408,14 @@ if( !class_exists( 'Font_Awesome_Field' ) ) {
 				$icons = array();
 
 				foreach( $matches as $match ){
-				    $icons[] = array( 'css' => $match[2], 'class' => stripslashes( $match[1] ) );
+				    $icons[] = array( 'css' =&gt; $match[2], 'class' =&gt; stripslashes( $match[1] ) );
 				}
 
 				update_option( 'fa_icons', $icons );
 
 			}
 
-			$this->icons = $icons;
+			$this-&gt;icons = $icons;
 
 		}
 
@@ -393,4 +429,12 @@ if( !class_exists( 'Font_Awesome_Field' ) ) {
 
 }
 
-?>
+?&gt;</pre>
+        <script type="text/javascript">
+             SyntaxHighlighter.all();
+             jQuery('.gutter div').each(function(key, data){
+                jQuery(data).prepend('<a name="L'+jQuery(data).text()+'"/>');
+             });
+        </script>
+    </body>
+</html>

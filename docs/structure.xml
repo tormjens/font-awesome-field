@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="API Documentation" version="2.7.0">
+  <partials/>
+  <file path="includes/template-tags.php" generated-path="includes.template-tags.html" hash="bde98e12734acb4e55f1646df320f552" package="WordPress">
+    <docblock line="0">
+      <description>Template tags for the Font Awesome Field</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="WordPress"/>
+      <tag name="package" line="0" description="WordPress"/>
+    </docblock>
+    <function namespace="" line="18" package="WordPress">
+      <name>get_fa</name>
+      <full_name>\get_fa()</full_name>
+      <docblock line="18">
+        <description>Retrieve the icon</description>
+        <long-description></long-description>
+        <tag name="package" line="18" description="WordPress"/>
+        <tag name="package" line="18" description="WordPress"/>
+        <tag name="param" line="18" description="&lt;p&gt;Format the output&lt;/p&gt;" type="boolean" variable="$format">
+          <type>boolean</type>
+        </tag>
+        <tag name="param" line="18" description="&lt;p&gt;The post ID&lt;/p&gt;" type="integer" variable="$post_id">
+          <type>integer</type>
+        </tag>
+        <tag name="return" line="18" description="The icon, either formatted as HTML, or just the name" type="string">
+          <type>string</type>
+        </tag>
+        <tag name="author" line="18" description=""/>
+      </docblock>
+      <argument line="0" by_reference="false">
+        <name>$format</name>
+        <default>false</default>
+        <type>boolean</type>
+      </argument>
+      <argument line="0" by_reference="false">
+        <name>$post_id</name>
+        <default>null</default>
+        <type>integer</type>
+      </argument>
+    </function>
+    <function namespace="" line="34" package="WordPress">
+      <name>the_fa</name>
+      <full_name>\the_fa()</full_name>
+      <docblock line="34">
+        <description>Print the icon</description>
+        <long-description></long-description>
+        <tag name="package" line="34" description="WordPress"/>
+        <tag name="package" line="34" description="WordPress"/>
+        <tag name="param" line="34" description="&lt;p&gt;Format the output&lt;/p&gt;" type="boolean" variable="$format">
+          <type>boolean</type>
+        </tag>
+        <tag name="param" line="34" description="&lt;p&gt;The post ID&lt;/p&gt;" type="integer" variable="$post_id">
+          <type>integer</type>
+        </tag>
+        <tag name="return" line="34" description="Echoes the icon, either formatted as HTML, or just the name" type="void">
+          <type>void</type>
+        </tag>
+        <tag name="author" line="34" description=""/>
+      </docblock>
+      <argument line="0" by_reference="false">
+        <name>$format</name>
+        <default>false</default>
+        <type>boolean</type>
+      </argument>
+      <argument line="0" by_reference="false">
+        <name>$post_id</name>
+        <default>null</default>
+        <type>integer</type>
+      </argument>
+    </function>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50001">Only one @package tag is allowed</error>
+    </parse_markers>
+    <source>eJy9kdFLwzAQxp+bv+KEwbpS2Pt0TkFFQWHIwMcS22sbbZOSXKYg+9+9tLMOUfBBpIQ2ua/3fffLyaqrOwAxTxIBCWyw7RpJCCQrB6WxQDXCldEE5y/oTMsbhU0RtGGddTJ/lhXCg7HF2qJzfJrMhVBlDEdQep2TMjrDV+XIxTCtkLJSTmHGz5sQUfCNuNE9klW4xd5P5UaH077CFla28GhMAxNO1EriQP0raI2nztOhUmnCCi1MOuMoUwVsWBa+4eZi0FkkbzU4ttRVXw6OKaDijhYGE8ICpIPrzd1tCgziybvBUcsWhz7SU82VsOGZo49pYRgyHuMuoZSNw/Qz0hK0b5qeQRTt4wTK2Z5y1lNeLOweSzz+mo5dZ8ci2gmx+xk2p/0W9prnpv8kvTVcvMxrg260/Tvcw5i/xo2c4+sVHWhHrKvTd5ea958=</source>
+  </file>
+  <file path="font-awesome-field.php" generated-path="font-awesome-field.html" hash="7784adc83fddda524a7a4283a9289291" package="WordPress">
+    <docblock line="0">
+      <description>Font Awesome Field WordPress Plugin</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="WordPress"/>
+      <tag name="package" line="0" description="WordPress"/>
+    </docblock>
+    <constant namespace="" line="45" package="WordPress">
+      <name>FA_DIR</name>
+      <full_name>\FA_DIR</full_name>
+      <value>plugin_dir_path(__FILE__)</value>
+      <docblock line="45">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="45" description="WordPress"/>
+        <tag name="package" line="45" description="WordPress"/>
+      </docblock>
+    </constant>
+    <constant namespace="" line="46" package="WordPress">
+      <name>FA_URL</name>
+      <full_name>\FA_URL</full_name>
+      <value>plugin_dir_url(__FILE__)</value>
+      <docblock line="46">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="46" description="WordPress"/>
+        <tag name="package" line="46" description="WordPress"/>
+      </docblock>
+    </constant>
+    <class final="false" abstract="false" namespace="" line="56" package="WordPress">
+      <extends/>
+      <name>Font_Awesome_Field</name>
+      <full_name>\Font_Awesome_Field</full_name>
+      <docblock line="56">
+        <description>Font Awesome Field Class</description>
+        <long-description></long-description>
+        <tag name="author" line="56" description="Tor Morten Jensen" link="mailto:tormorten@tormorten.no"/>
+        <tag name="package" line="56" description="WordPress"/>
+        <tag name="package" line="56" description="WordPress"/>
+      </docblock>
+      <property static="false" visibility="public" namespace="" line="63" package="WordPress">
+        <name>$icons</name>
+        <full_name>\Font_Awesome_Field::icons</full_name>
+        <default></default>
+        <docblock line="63">
+          <description>The availiable icons</description>
+          <long-description></long-description>
+          <tag name="var" line="63" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="70" package="WordPress">
+        <name>$screens</name>
+        <full_name>\Font_Awesome_Field::screens</full_name>
+        <default></default>
+        <docblock line="70">
+          <description>The screen to get the field</description>
+          <long-description></long-description>
+          <tag name="var" line="70" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="78" package="WordPress">
+        <name>__construct</name>
+        <full_name>\Font_Awesome_Field::__construct()</full_name>
+        <docblock line="78">
+          <description>Loads up actions and translations for the plugins</description>
+          <long-description></long-description>
+          <tag name="return" line="78" description="" type="void">
+            <type>void</type>
+          </tag>
+          <tag name="author" line="78" description="Tor Morten Jensen" link="mailto:tormorten@tormorten.no"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="120" package="WordPress">
+        <name>shortcode</name>
+        <full_name>\Font_Awesome_Field::shortcode()</full_name>
+        <docblock line="120">
+          <description>Font Awesome Shortcode</description>
+          <long-description></long-description>
+          <tag name="param" line="120" description="&lt;p&gt;Shortcode attributes&lt;/p&gt;" type="array|string" variable="$atts">
+            <type>array</type>
+            <type>string</type>
+          </tag>
+          <tag name="return" line="120" description="The formatted shortcode" type="string">
+            <type>string</type>
+          </tag>
+          <tag name="author" line="120" description="Tor Morten Jensen" link="mailto:tormorten@tormorten.no"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$atts</name>
+          <default></default>
+          <type>array|string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="142" package="WordPress">
+        <name>retrieve</name>
+        <full_name>\Font_Awesome_Field::retrieve()</full_name>
+        <docblock line="142">
+          <description>Retrieve an icon from a post</description>
+          <long-description></long-description>
+          <tag name="param" line="142" description="&lt;p&gt;The post ID&lt;/p&gt;" type="integer" variable="$post_id">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="142" description="&lt;p&gt;Format the output&lt;/p&gt;" type="boolean" variable="$format">
+            <type>boolean</type>
+          </tag>
+          <tag name="return" line="142" description="The icon, either formatted as HTML, or just the name" type="string">
+            <type>string</type>
+          </tag>
+          <tag name="author" line="142" description="Tor Morten Jensen" link="mailto:tormorten@tormorten.no"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$post_id</name>
+          <default>null</default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$format</name>
+          <default>false</default>
+          <type>boolean</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="177" package="WordPress">
+        <name>include_files</name>
+        <full_name>\Font_Awesome_Field::include_files()</full_name>
+        <docblock line="177">
+          <description>Include other PHP scripts for the plugin</description>
+          <long-description></long-description>
+          <tag name="return" line="177" description="" type="void">
+            <type>void</type>
+          </tag>
+          <tag name="author" line="177" description="Tor Morten Jensen" link="mailto:tormorten@tormorten.no"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="195" package="WordPress">
+        <name>front_scripts</name>
+        <full_name>\Font_Awesome_Field::front_scripts()</full_name>
+        <docblock line="195">
+          <description>Loads scripts and/or styles in the front-end</description>
+          <long-description></long-description>
+          <tag name="return" line="195" description="" type="void">
+            <type>void</type>
+          </tag>
+          <tag name="author" line="195" description="Tor Morten Jensen" link="mailto:tormorten@tormorten.no"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="211" package="WordPress">
+        <name>modal</name>
+        <full_name>\Font_Awesome_Field::modal()</full_name>
+        <docblock line="211">
+          <description>Adds the icon modal</description>
+          <long-description></long-description>
+          <tag name="return" line="211" description="Echoes the modal" type="void">
+            <type>void</type>
+          </tag>
+          <tag name="author" line="211" description="Tor Morten Jensen" link="mailto:tormorten@tormorten.no"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="253" package="WordPress">
+        <name>styles_and_scripts</name>
+        <full_name>\Font_Awesome_Field::styles_and_scripts()</full_name>
+        <docblock line="253">
+          <description>Loads up styles and scripts</description>
+          <long-description></long-description>
+          <tag name="return" line="253" description="" type="void">
+            <type>void</type>
+          </tag>
+          <tag name="author" line="253" description="Tor Morten Jensen" link="mailto:tormorten@tormorten.no"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="276" package="WordPress">
+        <name>metabox</name>
+        <full_name>\Font_Awesome_Field::metabox()</full_name>
+        <docblock line="276">
+          <description>Loads up actions and translations for the plugins</description>
+          <long-description></long-description>
+          <tag name="return" line="276" description="" type="void">
+            <type>void</type>
+          </tag>
+          <tag name="author" line="276" description="Tor Morten Jensen" link="mailto:tormorten@tormorten.no"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="296" package="WordPress">
+        <name>populate_metabox</name>
+        <full_name>\Font_Awesome_Field::populate_metabox()</full_name>
+        <docblock line="296">
+          <description>Prints metabox content</description>
+          <long-description></long-description>
+          <tag name="param" line="296" description="&lt;p&gt;The post object&lt;/p&gt;" type="object" variable="$post">
+            <type>object</type>
+          </tag>
+          <tag name="return" line="296" description="Echoes the metabox contents" type="void">
+            <type>void</type>
+          </tag>
+          <tag name="author" line="296" description="Tor Morten Jensen" link="mailto:tormorten@tormorten.no"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$post</name>
+          <default></default>
+          <type>object</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="329" package="WordPress">
+        <name>save</name>
+        <full_name>\Font_Awesome_Field::save()</full_name>
+        <docblock line="329">
+          <description>Saves the data</description>
+          <long-description></long-description>
+          <tag name="param" line="329" description="&lt;p&gt;The ID of the saved post&lt;/p&gt;" type="integer" variable="$post_id">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="329" description="" type="void">
+            <type>void</type>
+          </tag>
+          <tag name="author" line="329" description="Tor Morten Jensen" link="mailto:tormorten@tormorten.no"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$post_id</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="349" package="WordPress">
+        <name>instance</name>
+        <full_name>\Font_Awesome_Field::instance()</full_name>
+        <docblock line="349">
+          <description>Get an instance of the plugin</description>
+          <long-description></long-description>
+          <tag name="return" line="349" description="The instance" type="object">
+            <type>object</type>
+          </tag>
+          <tag name="author" line="349" description="Tor Morten Jensen" link="mailto:tormorten@tormorten.no"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="361" package="WordPress">
+        <name>generate_icon_array</name>
+        <full_name>\Font_Awesome_Field::generate_icon_array()</full_name>
+        <docblock line="361">
+          <description>Generates an array of all icons in Font Awesome by reading it from the file and then storing it in the database.</description>
+          <long-description></long-description>
+          <tag name="return" line="361" description="" type="void">
+            <type>void</type>
+          </tag>
+          <tag name="author" line="361" description="Tor Morten Jensen" link="mailto:tormorten@tormorten.no"/>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50001">Only one @package tag is allowed</error>
+    </parse_markers>
+    <source>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</source>
+  </file>
+  <package name="WordPress" full_name="WordPress"/>
+  <package name="global" full_name="global"/>
+  <namespace name="global" full_name="global"/>
+  <deprecated count="0"/>
+</project>
