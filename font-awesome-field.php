@@ -69,7 +69,7 @@
         /**
          * Loads Scripts for all custom post type works
          **/
-        if ( is_admin() /*&& ( current_user_can( 'edit_posts' ) || current_user_can( 'edit_pages' ) )*/ ) {
+        if ( is_admin() ) {
           // Load up the metabox
           add_action( 'add_meta_boxes', array( $this, 'metabox' ) );
           // Saves the data
@@ -193,14 +193,14 @@
        **/
       public function styles_and_scripts() {
         // only load the styles for eligable post types
-        if ( in_array( get_current_screen()->post_type, $this->screens ) ) {
+        /*if ( in_array( get_current_screen()->post_type, $this->screens ) ) {*/
           // load up font awesome
           wp_enqueue_style( 'fa-field-fontawesome-css', FA_URL . 'css/font-awesome/css/font-awesome.min.css' );
           // load up plugin css
           wp_enqueue_style( 'fa-field-css', FA_URL . 'css/fa-field.css' );
           // load up plugin js
           wp_enqueue_script( 'fa-field-js', FA_URL . 'js/fa-field.js', array( 'jquery' ) );
-        }
+        /*}*/
       }
       /**
        * Loads up actions and translations for the plugins
