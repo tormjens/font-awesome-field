@@ -66,7 +66,10 @@
         // Set screens
         $this->screens = apply_filters( 'fa_post_types', get_post_types( array( 'public' => true ) ) );
         // These should only be loaded in the admin, and for users that can edit posts
-        if ( is_admin() && ( current_user_can( 'edit_posts' ) || current_user_can( 'edit_pages' ) ) ) {
+        /**
+         * Loads Scripts for all custom post type works
+         **/
+        if ( is_admin() /*&& ( current_user_can( 'edit_posts' ) || current_user_can( 'edit_pages' ) )*/ ) {
           // Load up the metabox
           add_action( 'add_meta_boxes', array( $this, 'metabox' ) );
           // Saves the data
