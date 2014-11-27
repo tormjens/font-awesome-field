@@ -9,7 +9,7 @@
    * Plugin URI: http://tormorten.no
    * Author: Tor Morten Jensen
    * Author URI: http://tormorten.no
-   * Version: 1.0
+   * Version: 1.1
    * License: GPL2
    * Text Domain: fa-field
    * Domain Path: languages/
